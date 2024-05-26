@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+require('dotenv').config();
+
 const nextConfig = {
   experimental: {
     appDir: true,
@@ -12,8 +14,12 @@ const nextConfig = {
       ...config.experiments,
       topLevelAwait: true,
     }
-    return config
-  }
-}
+    return config;
+  },
+  env: {
+    GOOGLE_ID: process.env.GOOGLE_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
